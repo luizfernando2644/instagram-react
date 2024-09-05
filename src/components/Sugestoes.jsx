@@ -10,13 +10,13 @@ const sugestoes = [
 
 export default function Sugestoes() {
     return (
-        <div>
+        <div className="sugestoes1">
             <div className="upper-text">
                 <p>Sugestões para você</p>
                 <p>Ver tudo</p>
             </div>
             <div>
-                {sugestoes.map((o) => <Perfis image={o.image} name={o.name} texto={o.texto} texto_direita={o.texto_direita}/>)}
+                {sugestoes.map((o) => <Perfis image={o.image} name={o.name} texto={o.texto} texto_direita={o.texto_direita} />)}
             </div>
         </div>
     )

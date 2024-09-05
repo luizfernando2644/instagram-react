@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "./NavBar";
 import StoryList from "./Stories";
 import SideBar from "./SideBar";
+import Posts from "./Posts";
 
 export default function App() {
     return (
@@ -15,7 +16,7 @@ export default function App() {
                         <StoryList />
                     </div>
                     <div className="posts-box">
-
+                        <Posts />
                     </div>
                 </div>
                 <div className="right">
