@@ -129,6 +129,12 @@ button
   color: rgba(128, 128, 128, 0.644);
 }
 
+.foto-user
+{
+  max-width: 50%;
+  max-height: 50%;
+}
+
 /* ====================== ====================== */
 
 /* ====================== USUARIO - COMPONENTE ======================  */
@@ -178,6 +184,13 @@ button
 {
   color: rgb(0, 153, 255);
   font-weight: bold;
+  cursor: pointer;
+}
+
+.seguindo 
+{
+  color: rgba(128, 128, 128, 0.582);
+  cursor: pointer;
 }
 /* ====================== ====================== */
 
@@ -257,15 +270,5 @@ button
   width: 3%;
   height: 3%;
   margin-right: 10px;
-}
-
-.branco
-{
-  background-color: white;
-}
-
-.vermelho
-{
-  background-color: red;
 }
 /* ====================== ====================== */

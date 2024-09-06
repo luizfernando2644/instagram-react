@@ -2,33 +2,45 @@ import React from "react";
 import { useState } from "react";
 
 const posts = [
-    { image: "assets/img/meowed.svg", name: "meowed", post: "assets/img/gato-telefone.svg", image2: "assets/img/respondeai.svg", name2: "respondeai" },
-    { image: "assets/img/barked.svg", name: "barked", post: "assets/img/dog.svg", image2: "assets/img/adorable_animals.svg", name2: "adorable_animals" }
+    { image: "assets/img/meowed.svg", name: "meowed", post: "assets/img/gato-telefone.svg", image2: "assets/img/respondeai.svg", name2: "respondeai", likes: 101523 },
+    { image: "assets/img/barked.svg", name: "barked", post: "assets/img/dog.svg", image2: "assets/img/adorable_animals.svg", name2: "adorable_animals", likes: 200541 }
 ];
 
 export default function Posts() {
 
     return (
         <div>
-            {posts.map((o) => <Post image={o.image} name={o.name} post={o.post} image2={o.image2} name2={o.name2} />)}
+            {posts.map((o) => <Post image={o.image} name={o.name} post={o.post} image2={o.image2} name2={o.name2} likes={o.likes} />)}
         </div>
     )
 }
 
 function Post(props) {
 
+    const [cor, setCor] = useState("heart-outline");
+    const [corIcone, setCorIcone] = useState("black");
+    const [naoSalvo, setNaoSalvo] = useState("bookmark-outline");
+    const [likes, setLike] = useState(props.likes);
+
     function darLike() {
-        if (cor === "verde") {
-            setCor("vermelho")
+        if (cor === "heart-outline") {
+            setCor("heart")
+            setCorIcone("red")
+            setLike(likes + 1)
         } else {
-            setCor("verde")
+            setCor("heart-outline")
+            setCorIcone("black")
+            setLike(likes - 1)
         }
     }
 
-    
-    const [cor, setCor] = useState("branco");
-    const [save, setSave] = useState("white");
-    const [curtidas, setCurtidas] = useState(101522);
+    function salvarPost() {
+        if (naoSalvo === "bookmark-outline") {
+            setNaoSalvo("bookmark")
+        } else {
+            setNaoSalvo("bookmark-outline")
+        }
+    }
 
     return (
         <div className="post">
@@ -38,7 +50,7 @@ function Post(props) {
                     <p>{props.name}</p>
                 </div>
                 <div className="options">
-                    <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                    {<ion-icon name="ellipsis-horizontal-outline"></ion-icon>}
                 </div>
             </div>
             <div className="post-mid">
@@ -48,8 +60,8 @@ function Post(props) {
                 <div>
                     <div className="icons">
                         <div>
-                            <button className={cor} onClick={darLike}>
-                                <ion-icon name="heart-outline"></ion-icon>
+                            <button onClick={darLike}>
+                                <ion-icon name={cor} style={{ color: corIcone }}></ion-icon>
                             </button>
                             <button>
                                 <ion-icon name="chatbubble-outline"></ion-icon>
@@ -59,15 +71,15 @@ function Post(props) {
                             </button>
                         </div>
                         <div>
-                            <button>
-                                <ion-icon name="bookmark-outline"></ion-icon>
+                            <button onClick={salvarPost}>
+                                <ion-icon name={naoSalvo}></ion-icon>
                             </button>
                         </div>
                     </div>
                 </div>
                 <div className="curtidas">
-                    <img src={props.image2} />
-                    <p>Curtido por {props.name2} e outras </p>
+                    <img src={props.image2} alt="Imagem" />
+                    <p>Curtido por <span style={{ fontWeight: 'bolder' }}>{props.name2}</span> e outras <span style={{ fontWeight: 'bolder' }}>{likes}</span> pessoas</p>
                 </div>
             </div>
         </div>

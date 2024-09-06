@@ -1,11 +1,10 @@
 import React from "react";
 import { useState } from "react";
 
-const UserPhoto = "/assets/img/catanacomics.svg";
-
 export default function Usuario() {
 
     const [name, setname] = useState("catanacomics");
+    const [image, setImage] = useState("/assets/img/catanacomics.svg");
 
     function mudarNome() {
         let novoNome = prompt("Insira seu novo nome de usuário");
@@ -13,10 +12,16 @@ export default function Usuario() {
         setname(novoNome);
     }
 
+    function mudarFoto() {
+        let novaFoto = prompt("Insira o link da sua nova foto");
+        if (!novaFoto) return alert("Insira uma foto válida");
+        setImage(novaFoto);
+    }
+
     return (
 
         <div className="usuario">
-            <img src={UserPhoto} alt="Foto de perfil do usuário" />
+            <img src={image} alt="Foto de perfil do usuário" onClick={mudarFoto} className="foto-user" />
             <div className="user-info">
                 <p>{name}</p>
                 <span>
