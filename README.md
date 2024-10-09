@@ -51,6 +51,6 @@ The project will be available at `http://localhost:3000`.
 
 ## 👤 Developer
 
-Developed by [Luiz Fernando](https://github.com/seu-usuario). Feel free to get in touch or contribute to the project!
+Developed by [Luiz Fernando](https://github.com/luuizfernando). Feel free to get in touch or contribute to the project!
 
 ---
